@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios'; 
+import TodoList from './components/TodoList';
 
 function App() {
   const [message, setMessage] = useState(""); 
@@ -14,9 +15,9 @@ function App() {
   })
 
   return (
-    <div>
-      <h1>todo App</h1>
-      <p>{message}</p>
+    <div style={{ padding: "20px" }}>
+      <h1>Todo App</h1>
+      <TodoList />
     </div>
   );
 }
