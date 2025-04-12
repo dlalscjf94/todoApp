@@ -13,7 +13,9 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .csrf(csrf -> csrf.disable()) // CSRF 비활성화 (개발용)
+                .headers(headers -> headers.frameOptions().disable()) // H2 콘솔 표시용
                 .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/h2-console/**").permitAll()
                         .anyRequest().permitAll()
                 )
                 .httpBasic(Customizer.withDefaults());
